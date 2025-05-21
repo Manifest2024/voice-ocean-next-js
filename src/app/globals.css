@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.home-slider .slick-dots {
+  bottom: -52px;
+}
+.home-slider .slick-active > .active-dot {
+  background-color: #f04323;
+}
+
+.user-slider .slick-dots {
+  bottom: -42px;
+}
+
+.user-slider .slick-active > .active-dot {
+  background-color: #f04323;
+}
+
+.list-disc{
+  padding:15px;
+}
