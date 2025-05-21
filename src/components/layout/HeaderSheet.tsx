@@ -34,12 +34,12 @@ const HeaderSheet = () => {
     {
       name: "eLearning Voice Over",
       link: "/learning",
-      imgUrl: "https://voiceoceanllp.com/img/Voice%20Ocean%20e-Learning.jpg",
+      imgUrl: "https://voiceoceanllp.com/img/notification.jpeg",
     },
     {
       name: "IVR Voice Over",
       link: "/ivr",
-      imgUrl: "https://voiceoceanllp.com/img/Voice%20Ocean%20IVR.jpg",
+      imgUrl: "https://voiceoceanllp.com/img/help.jpeg",
     },
     {
       name: "Videos Voice Over",
@@ -51,7 +51,7 @@ const HeaderSheet = () => {
       name: "Commercials",
       link: "/commercial-voice-over",
       imgUrl:
-        "https://voiceoceanllp.com/img/Voice%20Ocean%20Commercials%20&%20Spots.jpg",
+        "https://voiceoceanllp.com/img/media.jpg",
     },
   ];
 

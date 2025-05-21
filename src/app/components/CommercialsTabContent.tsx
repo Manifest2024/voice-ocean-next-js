@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const CommercialsTabContent = () => {
@@ -14,9 +13,9 @@ const CommercialsTabContent = () => {
   }
   return (
     <div className="w-full bg-white p-[15px] border-2 border-cardbg border-t-0 lg:flex gap-5">
-      <Image
+      <img
         loading="lazy"
-        src="https://voiceoceanllp.com/img/Voice%20Ocean%20Commercials%20&%20Spots.jpg"
+        src="https://voiceoceanllp.com/img/media.jpeg"
         className="h-[300px] w-[300px]"
         alt="Voice Ocean Commercial Voice Over"
         width={300}

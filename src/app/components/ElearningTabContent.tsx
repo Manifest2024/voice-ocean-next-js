@@ -3,7 +3,7 @@ const ElearningTabContent = () => {
     <div className="w-full bg-white p-[15px] border-2 border-cardbg border-t-0 lg:flex gap-5">
       <img
         loading="lazy"
-        src="https://voiceoceanllp.com/img/Voice%20Ocean%20e-Learning.jpg"
+        src="https://voiceoceanllp.com/img/notification.jpeg"
         className="h-[300px] w-[300px]"
       />
       <div>
