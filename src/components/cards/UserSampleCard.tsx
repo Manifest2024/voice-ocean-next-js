@@ -13,6 +13,22 @@ const UserSampleCard: FC<UserCardProps> = ({
   details,
   artistDetails,
 }) => {
+
+      function getProfileImage(artistDetails: ArtistProfile): string {
+        switch (artistDetails.gender.toLowerCase()) {
+          case 'male':
+            return '/img/user-male.png';
+          case 'female':
+            return '/img/user-female.png';
+          default:
+            return '/img/default-avatar.png';
+        }
+      }
+    
+      const profileSrc =
+      artistDetails?.profile_photo? artistDetails?getProfileImage(artistDetails): "/default-avatar.png" : artistDetails?getProfileImage(artistDetails): "/default-avatar.png"; // fallback path
+    
+  
   return (
     <div
       className={cn(
@@ -23,11 +39,7 @@ const UserSampleCard: FC<UserCardProps> = ({
       <div className={cn("lg:flex gap-3", isSlider ? "flex" : "")}>
         <img
           loading="lazy"
-          src={
-            artistDetails?.profile_photo
-              ? artistDetails.profile_photo
-              : "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww"
-          }
+          src={profileSrc}
           alt=""
           className={cn(
             "lg:rounded-full rounded-md w-full h-[80px] lg:w-[65px] lg:h-[65px]",

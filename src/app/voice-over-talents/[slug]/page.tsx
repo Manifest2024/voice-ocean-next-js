@@ -78,6 +78,23 @@ const UserDetail: FC = () => {
     }
   }, [artistDetails]);
 
+
+    function getProfileImage(artistDetails: ArtistProfileResponse): string {
+      switch (artistDetails.artist.gender.toLowerCase()) {
+        case 'male':
+          return '/img/user-male.png';
+        case 'female':
+          return '/img/user-female.png';
+        default:
+          return '/img/default-avatar.png';
+      }
+    }
+  
+    const profileSrc =
+    artistDetails?.artist?.profile_photo? artistDetails?getProfileImage(artistDetails): "/default-avatar.png" : artistDetails?getProfileImage(artistDetails): "/default-avatar.png"; // fallback path
+  
+
+
   return (
     <div className="pt-28">
       <div className="p-5 lg:p-10 flex flex-col-reverse lg:flex-row gap-10">
@@ -137,10 +154,7 @@ const UserDetail: FC = () => {
                 <div className="lg:w-[235px] lg:h-[235px] p-1 border rounded-full h-min w-60">
                   <img
                     loading="lazy"
-                    src={
-                      artistDetails?.artist?.profile_photo ||
-                      "https://www.voyzapp.com/upload-nct/artist_profile_pic/VS773403/e4f1ce90c3b1abe3b9ee174609678323.png"
-                    }
+                    src={profileSrc}
                     className="rounded-full"
                     alt="Profile"
                   />
@@ -195,7 +209,7 @@ const UserDetail: FC = () => {
                   <div className="h-5 border-l" />
                   <div className="flex items-center gap-1">
                     <FaLocationDot size={16} />
-                    <p className="font-medium">Mumbai</p>
+                    <p className="font-medium">{artistDetails?.artist?.address || "N/A"}</p>
                   </div>
                 </div>
                 <div className="flex gap-2 mt-4">
