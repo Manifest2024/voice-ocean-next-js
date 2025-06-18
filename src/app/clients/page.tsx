@@ -38,16 +38,100 @@ const OurClients = () => {
 
           <hr className="my-10" />
           <div className="grid w-full h-full grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-            {new Array(10).fill("_").map((_, i) => {
-              return (
-                <div className=" border rounded" key={i}>
-                  <img
-                    loading="lazy"
-                    src="https://voiceoceanllp.com/img/Client%20List/B%20Lingo%20Communications.png"
-                  />
-                </div>
-              );
-            })}
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/B%20Lingo%20Communications.png"
+              />
+            </div>
+            
+
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/BTI Studios.jpg"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/Hexaware.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/Lionbridge Technologies.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/MBC FZ LLC.jpg"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/MHD Productions Limited.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/MoneyGram.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/Speechocean.jpg"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/TransPerfect.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/Unifun.jpg"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/VFS Global.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/Voice to Me.png"
+              />
+            </div>
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/chocolate-moose-logo.jpg"
+              />
+            </div>
+            {/**  <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/eg_worldwide.jpg"
+              />
+            </div>
+            */}
+            <div className=" border rounded" key='1'>
+              <img
+                loading="lazy"
+                src="https://voiceoceanllp.com/img/Client%20List/tonwelt GmbH.png"
+              />
+            </div>
+
           </div>
           <hr className="" />
           <div className="mb-10">
