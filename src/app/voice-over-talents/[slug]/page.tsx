@@ -79,22 +79,21 @@ const UserDetail: FC = () => {
   }, [artistDetails]);
 
 
-    function getProfileImage(artistDetails: ArtistProfileResponse): string {
-      switch (artistDetails.artist.gender.toLowerCase()) {
-        case 'male':
-          return '/img/user-male.png';
-        case 'female':
-          return '/img/user-female.png';
-        default:
-          return '/img/default-avatar.png';
-      }
+  function getProfileImage(artistDetails: ArtistProfileResponse): string {
+    switch (artistDetails.artist.gender.toLowerCase()) {
+      case 'male':
+        return '/img/user-male.png';
+      case 'female':
+        return '/img/user-female.png';
+      default:
+        return '/img/default-avatar.png';
     }
-  
-    const profileSrc =
-    artistDetails?.artist?.profile_photo? artistDetails?getProfileImage(artistDetails): "/default-avatar.png" : artistDetails?getProfileImage(artistDetails): "/default-avatar.png"; // fallback path
-  
+  }
 
+  const profileSrc =
+    artistDetails?.artist?.profile_photo ? artistDetails ? getProfileImage(artistDetails) : "/default-avatar.png" : artistDetails ? getProfileImage(artistDetails) : "/default-avatar.png"; // fallback path
 
+      
   return (
     <div className="pt-28">
       <div className="p-5 lg:p-10 flex flex-col-reverse lg:flex-row gap-10">
@@ -168,18 +167,22 @@ const UserDetail: FC = () => {
                           addArtist({
                             bookedArtists: {
                               address: artistDetails.artist.address || "",
-                              artist_category:
-                                artistDetails.artist.category || "",
+                              artist_category: artistDetails.artist.category || "",
                               gender: artistDetails.artist.gender || "",
                               id: artistDetails.artist.id || "",
                               languages: artistDetails.artist.languages || "",
                               name: artistDetails.artist.name || "",
-                              profile_photo:
-                                artistDetails.artist.profile_photo || "",
-                              voice_samples: artistDetails.voiceSamples,
+                              profile_photo: artistDetails.artist.profile_photo || "",
+                              voice_samples: artistDetails.voiceSamples.map((vs) => ({
+                                ...vs,
+                                sample: vs.sample.startsWith("http")
+                                  ? vs.sample
+                                  : `https://admin.voiceoceanllp.com${vs.sample}`,
+                              })),
                             },
                           }),
                         );
+
                         toast({
                           title: "Success",
                           variant: "success",
@@ -190,6 +193,7 @@ const UserDetail: FC = () => {
                   >
                     Book Now
                   </Button>
+
                 </div>
               </div>
               <div className="flex flex-col items-center mt-5 lg:block">

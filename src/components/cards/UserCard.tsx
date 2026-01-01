@@ -35,6 +35,12 @@ const UserCard: FC<UserCardProps> = ({
   const profileSrc =
   details?.profile_photo? details?getProfileImage(details): "/default-avatar.png" : details?getProfileImage(details): "/default-avatar.png"; // fallback path
 
+  const rawSample = details?.voice_samples?.[0]?.sample;
+
+const audioSrc = rawSample
+  ?.replace("/api/voice_samples", "/voice_samples");
+
+
   return (
     <div
       className={cn(
@@ -76,12 +82,8 @@ const UserCard: FC<UserCardProps> = ({
       </div>
       <audio controls className="w-full mt-3">
         <source
-          src={
-            details?.voice_samples.length
-              ? details.voice_samples[0].sample
-              : "https://file-examples.com/storage/fe0e2ce82f660c1579f31b4/2017/11/file_example_MP3_700KB.mp3"
-          }
-          type="audio/ogg"
+          src={audioSrc} 
+          type="audio/mpeg"
         />
         {/* <source src="horse.mp3" type="audio/mpeg" /> */}
         Your browser does not support the audio element.

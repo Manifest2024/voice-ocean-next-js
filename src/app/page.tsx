@@ -302,7 +302,7 @@ const Home = () => {
           </div>
         </div>
         <div className="w-screen flex justify-center bg-company-overview py-14">
-          <div className="w-full max-w-[1170px]  p-5 lg:p-0 text-white">
+          <div className="w-full max-w-[1170px]  p-5 lg:p-0">
             <p className="text-center  text-2xl lg:text-4xl mb-10">
               Welcome to <span className="font-bold">Voice Ocean</span>
             </p>

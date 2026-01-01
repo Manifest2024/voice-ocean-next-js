@@ -85,7 +85,7 @@ const About = () => {
           <hr className="w-1/2 mx-auto mt-5" />
           <div className="mt-10">
             <PersonDetailsCard
-              img="https://voiceoceanllp.com/img/team/maruti-shinde.jpg"
+              img="./img/team/maruti-shinde.jpg"
               name="Maruti Shinde"
             >
               <p className="lg:text-lg text-grayTxt">
@@ -121,7 +121,7 @@ const About = () => {
               </p>
             </PersonDetailsCard>
             <PersonDetailsCard
-              img="https://voiceoceanllp.com/img/team/chintamansingh-rajput.jpg"
+              img="./img/team/chintamansingh-rajput.jpg"
               name="Chintamansingh Rajput"
             >
               <p className="lg:text-lg text-grayTxt">
@@ -141,7 +141,7 @@ const About = () => {
               </p>
             </PersonDetailsCard>
             <PersonDetailsCard
-              img="https://voiceoceanllp.com/img/team/mahesh-govali.jpg"
+              img="./img/team/mahesh-govali.jpg"
               name="Chintamansingh Rajput"
             >
               <p className="lg:text-lg text-grayTxt">
@@ -159,7 +159,7 @@ const About = () => {
               </p>
             </PersonDetailsCard>
             <PersonDetailsCard
-              img="https://voiceoceanllp.com/img/team/ShankarSutar.jpg"
+              img="./img/team/ShankarSutar.jpg"
               name="Chintamansingh Rajput"
             >
               <p className="lg:text-lg text-grayTxt">

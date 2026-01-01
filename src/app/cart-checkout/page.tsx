@@ -46,7 +46,9 @@ const CartCheckout = () => {
 
   const createOrder = () => {
     // API call to create order
+    console.log(cart, 'cart');
     if (cart.bookedArtists.length === 0) {
+
       alert("Please book an artist first");
       return;
     }

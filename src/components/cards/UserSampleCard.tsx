@@ -14,21 +14,29 @@ const UserSampleCard: FC<UserCardProps> = ({
   artistDetails,
 }) => {
 
-      function getProfileImage(artistDetails: ArtistProfile): string {
-        switch (artistDetails.gender.toLowerCase()) {
-          case 'male':
-            return '/img/user-male.png';
-          case 'female':
-            return '/img/user-female.png';
-          default:
-            return '/img/default-avatar.png';
-        }
-      }
-    
-      const profileSrc =
-      artistDetails?.profile_photo? artistDetails?getProfileImage(artistDetails): "/default-avatar.png" : artistDetails?getProfileImage(artistDetails): "/default-avatar.png"; // fallback path
-    
-  
+  function getProfileImage(artistDetails: ArtistProfile): string {
+    switch (artistDetails.gender.toLowerCase()) {
+      case 'male':
+        return '/img/user-male.png';
+      case 'female':
+        return '/img/user-female.png';
+      default:
+        return '/img/default-avatar.png';
+    }
+  }
+
+  const profileSrc =
+    artistDetails?.profile_photo ? artistDetails ? getProfileImage(artistDetails) : "/default-avatar.png" : artistDetails ? getProfileImage(artistDetails) : "/default-avatar.png"; // fallback path
+
+  const rawSample = details?.sample;
+
+  const audioSrc = rawSample
+    ? rawSample.replace("/api/voice_samples", "/voice_samples")
+    : "";
+
+
+
+
   return (
     <div
       className={cn(
@@ -61,11 +69,7 @@ const UserSampleCard: FC<UserCardProps> = ({
       </div>
       <audio controls className="w-full mt-3">
         <source
-          src={
-            details?.sample
-              ? details.sample
-              : "https://file-examples.com/storage/fe0e2ce82f660c1579f31b4/2017/11/file_example_MP3_700KB.mp3"
-          }
+          src={audioSrc}
           type="audio/ogg"
         />
         <source src="horse.mp3" type="audio/mpeg" />

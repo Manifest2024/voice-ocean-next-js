@@ -136,6 +136,10 @@ const Header = () => {
           </Button>
 
           <Button variant="ghostprimary" asChild>
+            <Link href="/blogs">BLOGS</Link>
+          </Button>
+
+          <Button variant="ghostprimary" asChild>
             <Link href="/contact-us">CONTACT US</Link>
           </Button>
 
