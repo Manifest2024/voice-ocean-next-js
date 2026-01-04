@@ -1,8 +1,8 @@
 type BlogPost = {
   id: number;
   title: string;
-  image: string; // base64
-  content: string; // base64
+  image: string; 
+  content: string; 
 };
 
 async function getPosts(): Promise<BlogPost[]> {
@@ -34,25 +34,43 @@ export default async function BlogListPage() {
         </div>
       </div>
       <div className="w-full flex items-center flex-col">
-        <div className="w-full max-w-[1140px] mt-5 p-5 lg:p-0">
-          <ul>
-            {posts.map((post) => (
-              <li key={post.id} className="blog-holder card">
-                <a href={`/blogs/${post.id}`}>
-                  <h3>{post.title}</h3>
-                  <img
-                    src={`${post.image}`}
-                    alt=''
-                    style={{ width: '100%', height: '150px' }}
-                  />
-                  <p className="blog-content-holder">{post.content}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
-           
-          <hr className="w-1/2 mx-auto mt-10 mb-10" />
-        </div>
+      <div className="w-full max-w-[1140px] mt-8 mx-auto px-5 lg:px-0">
+  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {posts.map((post) => (
+      <li
+        key={post.id}
+        className="group bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+      >
+        <a href={`/blogs/${post.id}`} className="block h-full">
+          <div className="overflow-hidden">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-[180px] object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+
+          <div className="p-5 flex flex-col h-full">
+            <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-[#6B6EB0] transition">
+              {post.title}
+            </h3>
+
+            <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+              {post.content.replace(/<[^>]+>/g, "")}
+            </p>
+
+            <span className="mt-auto text-sm font-medium text-[#6B6EB0] group-hover:underline">
+              Read more →
+            </span>
+          </div>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <hr className="w-1/2 mx-auto mt-14 mb-10 border-gray-300" />
+</div>
+
         <div className="bg-primary w-screen py-[50px] flex justify-center">
           <div className="max-w-[1140px] flex justify-around text-white w-full flex-col lg:flex-row gap-y-5">
             <div className="text-center">
