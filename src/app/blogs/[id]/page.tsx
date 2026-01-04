@@ -47,9 +47,9 @@ export async function generateMetadata(
 }
 
 /* =========================
-   PAGE (SERVER RENDERED)
+   PAGE COMPONENT
 ========================= */
-export default async function BlogDetailsPage({
+export default async function Page({
   params,
 }: {
   params: { id: string };
@@ -67,19 +67,18 @@ export default async function BlogDetailsPage({
 
   return (
     <div>
+      {/* HERO */}
       <div className="bg-company-overview h-[350px] flex justify-center items-center">
         <div className="mt-24 lg:mt-10">
-          <div className="flex justify-between gap-5">
-            <p className="text-base text-primary">HOME</p>
-            <p className="text-base text-primary">BLOG</p>
-          </div>
           <p className="text-[32px] text-white pb-5 border-b-4 border-primary text-center">
             BLOG
           </p>
         </div>
       </div>
 
+      {/* BLOG CONTENT */}
       <div className="max-w-[900px] mx-auto px-5 py-12">
+        {/* IMAGE */}
         <div className="mb-8 overflow-hidden rounded-2xl shadow-lg">
           <img
             src={blog.image}
@@ -88,10 +87,12 @@ export default async function BlogDetailsPage({
           />
         </div>
 
+        {/* TITLE */}
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
           {blog.title}
         </h1>
 
+        {/* CONTENT */}
         <div
           className="prose prose-lg max-w-none text-gray-700"
           dangerouslySetInnerHTML={{ __html: blog.content }}
