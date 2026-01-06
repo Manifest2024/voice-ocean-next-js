@@ -19,3 +19,6 @@
 .list-disc{
   padding:15px;
 }
+.slick-prev:before, .slick-next:before {
+    color: #f25315 !important;
+}

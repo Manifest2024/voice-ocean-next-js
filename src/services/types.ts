@@ -73,10 +73,13 @@ export interface Testimonial {
   testimonial_name: string;
   location: string;
   testimonial_description: string;
+  image?: string | null;
 }
 
 export interface Client {
+  id?: number;   
   client_id: string;
   seo_title: string;
   client_logo: string;
+  client_name: string;
 }

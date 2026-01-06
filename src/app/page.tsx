@@ -67,6 +67,7 @@ const Home = () => {
   const [actors, setActors] = useState<Actor[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isMounted, setIsMounted] = useState(false);
+  const ADMIN_BASE_URL = process.env.NEXT_PUBLIC_MEDIA_BASE_URL;
 
   useEffect(() => {
     setIsMounted(true);
@@ -430,51 +431,78 @@ const Home = () => {
 
         {/* Testimonials */}
 
-        <div className="w-screen flex justify-center py-10 bg-[#f4f5ec]">
-          <div className="w-full max-w-[1170px]">
-            <p className="text-2xl lg:text-4xl text-center text-grayTxt mb-5">
-              Testimonials
-            </p>
-            <div className="max-w-[1140px] w-full home-slider mt-4 mb-10">
-              {testimonials.length > 1 ? (
-                <Slider {...settings}>
-                  {testimonials.map((tsm, i) => {
-                    return (
-                      <div key={i} className="mb-5 p-5">
-                        <p
-                          key={i}
-                          className="text-center text-grayTxt lg:text-base"
-                        >
-                          {tsm.testimonial_description}
-                        </p>
-                        <p className="text-lg font-bold text-center mt-5">
-                          {tsm.testimonial_name}
-                        </p>
-                        <p className=" text-grayTxt text-xs text-center">
-                          {tsm.location}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </Slider>
-              ) : testimonials.length ? (
-                <div className="mb-5 p-5">
-                  <p className="text-center text-grayTxt lg:text-base">
-                    {testimonials[0].testimonial_description}
+              <div className="w-screen flex justify-center py-14 bg-[#f4f5ec]">
+  <div className="w-full max-w-[1170px] px-4">
+    <p className="text-2xl lg:text-4xl text-center text-gray-800 font-semibold mb-8">
+      Testimonials
+    </p>
+
+    <div className="max-w-[1140px] w-full mx-auto">
+      {testimonials.length > 1 ? (
+        <Slider {...settings}>
+          {testimonials.map((tsm, i) => (
+            <div key={i} className="px-4 pb-6">
+              <div className="bg-white rounded-2xl shadow-md p-8 text-center h-full flex flex-col items-center">
+                
+                {/* Image (Nullable) */}
+                {tsm.image && (
+                  <img
+                    src={ADMIN_BASE_URL + "/" + tsm.image}
+                    alt={tsm.testimonial_name}
+                    className="w-20 h-20 rounded-full object-cover mb-4 border"
+                  />
+                )}
+
+                <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
+                  “{tsm.testimonial_description}”
+                </p>
+
+                <p className="text-lg font-semibold text-gray-800 mt-6">
+                  {tsm.testimonial_name}
+                </p>
+
+                {tsm.location && (
+                  <p className="text-gray-500 text-xs mt-1">
+                    {tsm.location}
                   </p>
-                  <p className="text-lg font-bold text-center mt-5">
-                    {testimonials[0].testimonial_name}
-                  </p>
-                  <p className=" text-grayTxt text-xs text-center">
-                    {testimonials[0].location}
-                  </p>
-                </div>
-              ) : (
-                <></>
-              )}
+                )}
+              </div>
             </div>
+          ))}
+        </Slider>
+      ) : testimonials.length === 1 ? (
+        <div className="px-4 pb-6 flex justify-center">
+          <div className="bg-white rounded-2xl shadow-md p-8 text-center max-w-xl w-full flex flex-col items-center">
+            
+            {/* Image (Nullable) */}
+            {testimonials[0].image && (
+              <img
+                src={testimonials[0].image}
+                alt={testimonials[0].testimonial_name}
+                className="w-20 h-20 rounded-full object-cover mb-4 border"
+              />
+            )}
+
+            <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
+              “{testimonials[0].testimonial_description}”
+            </p>
+
+            <p className="text-lg font-semibold text-gray-800 mt-6">
+              {testimonials[0].testimonial_name}
+            </p>
+
+            {testimonials[0].location && (
+              <p className="text-gray-500 text-xs mt-1">
+                {testimonials[0].location}
+              </p>
+            )}
           </div>
         </div>
+      ) : null}
+    </div>
+  </div>
+</div>
+
 
         <hr />
 
